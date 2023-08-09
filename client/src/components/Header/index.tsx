@@ -16,6 +16,7 @@ export function Header(): JSX.Element {
       setLoading(true);
 
       await api.delete(`/items/list`);
+      
 
       setShoplist([
         {
