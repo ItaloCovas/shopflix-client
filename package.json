@@ -44,6 +44,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/cookie": "^0.5.1",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "eslint-config-prettier": "^8.8.0",

@@ -79,7 +79,7 @@ export default function Login(): JSX.Element {
         { token: res.data.data.token },
         '/api/cookies',
         {},
-        'http://localhost:3000'
+        process.env.NEXT_PUBLIC_URL
       );
 
       toast.success('Usuário autenticado com sucesso!');

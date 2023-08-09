@@ -33,7 +33,7 @@ export function Header(): JSX.Element {
 
   async function handleLogout(): Promise<void> {
     try {
-      await api.delete('/api/cookies', {}, 'http://localhost:3000');
+      await api.delete('/api/cookies', {}, process.env.NEXT_PUBLIC_URL);
       router.push('/');
     } catch (e) {
       router.push('/');

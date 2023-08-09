@@ -67,7 +67,7 @@ export const ShoplistProvider: React.FC<{ children: ReactNode }> = ({
     const res = await api.get<CookieResponse>(
       '/api/cookies',
       {},
-      'http://localhost:3000'
+      process.env.NEXT_PUBLIC_URL
     );
     return res.data.userData.userId;
   }
