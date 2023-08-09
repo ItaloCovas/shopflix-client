@@ -13,7 +13,7 @@ export function Header(): JSX.Element {
 
   async function handleClearList(): Promise<void> {
     try {
-      if(shoplist.length === 0) {
+      if(shoplist.length === 1) {
         return;
       }
 

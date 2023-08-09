@@ -27,7 +27,7 @@ export const Providers = ({
       <ToastContainer
         theme={theme === 'dark' ? 'dark' : 'light'}
         position="top-right"
-        autoClose={3000}
+        autoClose={1500}
         hideProgressBar={false}
         closeOnClick
       />
