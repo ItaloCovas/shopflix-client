@@ -8,14 +8,17 @@ import api from '@/services/api';
 import { useShoplist } from '@/context/shoplistContext';
 
 export function Header(): JSX.Element {
-  const { setShoplist, setLoading } = useShoplist();
+  const { shoplist, setShoplist, setLoading, userId } = useShoplist();
   const router = useRouter();
 
   async function handleClearList(): Promise<void> {
     try {
+      if (shoplist.length === 1) {
+        return;
+      }
       setLoading(true);
 
-      await api.delete(`/items/list`);
+      await api.delete(`/items/list/${userId}`);
 
       setShoplist([
         {
@@ -27,6 +30,7 @@ export function Header(): JSX.Element {
       setLoading(false);
       toast.success('Lista limpa com sucesso!');
     } catch (e) {
+      setLoading(false);
       toast.error('Erro ao limpar a lista, tente novamente.');
     }
   }
