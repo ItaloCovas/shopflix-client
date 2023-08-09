@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { parse, serialize } from 'cookie';
-import { jwtDecrypt } from 'jose';
+import { decodeJwt } from 'jose';
 
 import { COOKIE_NAME, MAX_AGE } from '@/constants/cookies';
 
@@ -30,14 +30,12 @@ export async function POST(request: NextRequest): Promise<Response> {
 
   const { token } = body;
 
-  const decodedToken = await jwtDecrypt(token, {
-    type: 'string'
-  });
+  const decodedToken = decodeJwt(token);
 
   const userData = {
-    userId: decodedToken.payload?.unique_name,
-    email: decodedToken.payload?.email,
-    username: decodedToken.payload?.given_name
+    userId: decodedToken.unique_name,
+    email: decodedToken.email,
+    username: decodedToken.given_name
   };
 
   const serialized = serialize(COOKIE_NAME, token, {
