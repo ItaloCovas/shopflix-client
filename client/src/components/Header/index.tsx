@@ -32,8 +32,8 @@ export function Header(): JSX.Element {
       setLoading(false);
       toast.success('Lista limpa com sucesso!');
     } catch (e) {
-      toast.error('Erro ao limpar a lista, tente novamente.');
       setLoading(false);
+      toast.error('Erro ao limpar a lista, tente novamente.');
     }
   }
 
